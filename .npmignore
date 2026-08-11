@@ -1,7 +1,0 @@
-test/
-test-commonjs/
-testData/
-.nyc_output/
-coverage/
-.tap/
-.github/
