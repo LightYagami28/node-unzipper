@@ -3,7 +3,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import temp from 'temp';
-import dirdiff from 'dirdiff';
+import dirdiff from './helpers/directoryDiff.js';
 import { Extract, Parse } from '../index.js';
 
 test("parse uncompressed archive", function (t) {

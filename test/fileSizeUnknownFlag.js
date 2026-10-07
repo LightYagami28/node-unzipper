@@ -1,7 +1,7 @@
 import { test } from 'tap';
 import fs from 'fs';
 import temp from 'temp';
-import dirdiff from 'dirdiff';
+import dirdiff from './helpers/directoryDiff.js';
 import { Parse, Extract } from '../index.js';
 
 test("parse archive w/ file size unknown flag set (created by OS X Finder)", function (t) {

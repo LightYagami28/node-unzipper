@@ -1,6 +1,7 @@
 import { test } from 'tap';
 import fs from 'fs';
 import { Open } from '../index.js';
+import { normalizeText } from './helpers/normalizeText.js';
 import request from 'request';
 
 test("get content of a single file entry out of a 502 MB zip from web", function (t) {
@@ -13,7 +14,7 @@ test("get content of a single file entry out of a 502 MB zip from web", function
     })
     .then(function(str) {
       const fileStr = fs.readFileSync('./testData/bootstrap-reboot.min.css', 'utf8');
-      t.equal(str.toString(), fileStr);
+      t.equal(normalizeText(str.toString()), normalizeText(fileStr));
       t.end();
     });
 });

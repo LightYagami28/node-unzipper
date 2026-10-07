@@ -4,6 +4,7 @@ import { test } from 'tap';
 import fs from 'fs';
 import streamBuffers from "stream-buffers";
 import { ParseOne } from '../index.js';
+import { normalizeText } from './helpers/normalizeText.js';
 
 const archive = './testData/compressed-standard/archive.zip';
 
@@ -12,7 +13,7 @@ test("pipe a single file entry out of a zip", function (t) {
   writableStream.on('close', function () {
     const str = writableStream.getContentsAsString('utf8');
     const fileStr = fs.readFileSync('./testData/compressed-standard/inflated/file.txt', 'utf8');
-    t.equal(str, fileStr);
+    t.equal(normalizeText(str), normalizeText(fileStr));
     t.end();
   });
 

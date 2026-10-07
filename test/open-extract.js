@@ -1,7 +1,7 @@
 import { test } from 'tap';
 import path from 'path';
 import temp from 'temp';
-import dirdiff from 'dirdiff';
+import dirdiff from './helpers/directoryDiff.js';
 import { Open } from '../index.js';
 import fs from 'fs';
 

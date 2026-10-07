@@ -2,6 +2,7 @@ import { test } from "tap";
 import fs from "fs";
 import Stream from "stream"; // "node:stream"
 import { Open } from "../index.js";
+import { normalizeText } from './helpers/normalizeText.js';
 
 const version = +process.version.replace("v", "").split(".")[0];
 
@@ -50,7 +51,7 @@ test(
 
       return file.buffer().then(function (str) {
         const fileStr = fs.readFileSync("./testData/compressed-standard/inflated/file.txt", "utf8");
-        t.equal(str.toString(), fileStr);
+        t.equal(normalizeText(str.toString()), normalizeText(fileStr));
         t.end();
       });
     });

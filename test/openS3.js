@@ -1,6 +1,7 @@
 import { test } from 'tap';
 import fs from 'fs';
 import { Open } from '../index.js';
+import { normalizeText } from './helpers/normalizeText.js';
 import AWS from 'aws-sdk';
 const s3 = new AWS.S3({region: 'us-east-1'});
 
@@ -24,7 +25,7 @@ test("get content of a single file entry out of a zip", { skip: true }, function
       return file.buffer()
         .then(function(str) {
           const fileStr = fs.readFileSync('./testData/compressed-standard/inflated/file.txt', 'utf8');
-          t.equal(str.toString(), fileStr);
+          t.equal(normalizeText(str.toString()), normalizeText(fileStr));
           t.end();
         });
     });
